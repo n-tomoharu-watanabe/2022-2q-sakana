@@ -18,9 +18,13 @@ export const Card = ({ path, onClick, ...props }: CardProps) => {
     <Box
       display="flex"
       alignItems="center"
-      bg="lightblue"
-      margin="1"
+      bg="blue.300"
+      _hover={{
+        bg: "blue.200",
+      }}
+      margin="2"
       rounded="base"
+      cursor="pointer"
       key={path}
       onClick={e => {
         setIsDrawerOpen(true)
@@ -47,12 +51,14 @@ export const Card = ({ path, onClick, ...props }: CardProps) => {
       >
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerHeader borderBottomWidth='1px' py="8px">
-            お魚について
-          </DrawerHeader>
-          <DrawerBody minH="64px">
-            {fishName}についての説明です。
-          </DrawerBody>
+          <Box width="full" maxWidth="md" mx="auto">
+            <DrawerHeader borderBottomWidth='1px' py="8px">
+              お魚について
+            </DrawerHeader>
+            <DrawerBody minH="64px">
+              {fishName}についての説明です。
+            </DrawerBody>
+          </Box>
         </DrawerContent>
       </Drawer>
     </Box>
