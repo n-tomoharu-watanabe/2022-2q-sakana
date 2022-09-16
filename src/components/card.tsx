@@ -1,4 +1,4 @@
-import { Box, BoxProps, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, Image, Text } from "@chakra-ui/react"
+import { Box, BoxProps, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Image, Text } from "@chakra-ui/react"
 import { useState } from "react"
 
 type CardProps = BoxProps & {
@@ -51,10 +51,16 @@ export const Card = ({ path, onClick, ...props }: CardProps) => {
       >
         <DrawerOverlay />
         <DrawerContent>
-          <Box width="full" maxWidth="md" mx="auto">
+          <Box
+            width="full"
+            maxWidth="md"
+            mx="auto"
+            position="relative"
+          >
             <DrawerHeader borderBottomWidth='1px' py="8px">
               お魚について
             </DrawerHeader>
+            <DrawerCloseButton />
             <DrawerBody minH="64px">
               {fishName}についての説明です。
             </DrawerBody>
