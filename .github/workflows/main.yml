@@ -27,6 +27,7 @@ jobs:
         run: yarn run build
         env:
           NODE_ENV: production
+          BASE_PATH: "/${{ github.event.repository.name }}/"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
