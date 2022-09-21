@@ -43,7 +43,7 @@ const FishCard = (props: FishCardProps) => {
             {fishName}
           </Text>
           <Image
-            src={props.path}
+            src={import.meta.env.BASE_URL + props.path.slice(1)}
             overflow="hidden"
             roundedBottom="md"
             loading="lazy"
