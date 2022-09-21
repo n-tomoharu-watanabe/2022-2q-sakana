@@ -10,7 +10,7 @@ export const Card = ({ path, onClick, ...props }: CardProps) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [isGraphInfoOpen, setIsGraphInfoOpen] = useState(false)
 
-  const fishName = path.match(/[^\/]+(?=\.png)/)?.toString()
+  const fishName = path.match(/[^\/]+(?=\.jpg)/)?.toString()
 
   if (!fishName) {
     return null
