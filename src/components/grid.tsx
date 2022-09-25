@@ -131,12 +131,18 @@ const FishCard = (props: FishCardProps) => {
                     as="h5" 
                     size="md"
                     mx="1"
+                    mb="1"
                   >
-                    MSYについて
+                    最大持続生産量（MSY）とは
                   </Heading>
+                  <Text
+                    ml="1"
+                    mb="1"
+                  >
+                    資源量を減少させず、持続的に魚を獲り続けることが出来る最大の漁獲量のこと。
+                  </Text>
                   <Image
                     src={import.meta.env.BASE_URL + "images/msy-info.png"}
-                    p="2"
                   />
                 </Box>
               </Collapse>
