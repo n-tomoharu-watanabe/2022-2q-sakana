@@ -1,5 +1,5 @@
 import { InfoIcon } from "@chakra-ui/icons"
-import { Box, Center, Collapse, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, Grid, Heading, IconButton, Image, Text } from "@chakra-ui/react"
+import { Box, Center, Collapse, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, Grid, Heading, IconButton, Image, Link, Text } from "@chakra-ui/react"
 import { useState } from "react"
 
 type FishCardProps = {
@@ -95,16 +95,58 @@ const FishCard = (props: FishCardProps) => {
                   グラフについての説明です。
                 </Text>
               </Collapse>
-              <Center
-                h="64px"
-                bg="gray.500"
-                m="1"
-                color="white"
-                fontSize="xl"
-                rounded="base"
+              <Box
+                position="relative"
               >
-                グラフ画像
-              </Center>
+                <Image
+                  src={import.meta.env.BASE_URL + "images/msy-graph.png"}
+                  border="1px solid gray"
+                  rounded="md"
+                  p="2"
+                />
+                <Box
+                  position="absolute"
+                  top="0"
+                  left="0"
+                  width="calc(100% - 2px)"
+                  height="calc(100% - 2px)"
+
+                  background="white"
+                  opacity="0.6"
+                  rounded="md"
+
+                  m="1px"
+                />
+                <Text
+                  position="absolute"
+                  top="50%"
+                  left="50%"
+                  transform="auto"
+                  translateX="-50%"
+                  translateY="-50%"
+                  align="center"
+                  background="rgba(255, 255, 255, 0.9)"
+                  whiteSpace="nowrap"
+                  border="1px solid gray"
+                  rounded="md"
+                  p="2"
+                >
+                  MSYグラフのイメージ画像です
+                </Text>
+
+                <Link
+                  position="absolute"
+                  bottom="0"
+                  right="0"
+                  href="http://chiur.blue.coocan.jp/ee/ee09.htm"
+                  fontSize="sm"
+                  mx="1.5"
+                  my="0.5"
+                  color='teal.500'
+                >
+                  http://chiur.blue.coocan.jp/ee/ee09.htm
+                </Link>
+              </Box>
             </DrawerBody>
           </Box>
         </DrawerContent>
