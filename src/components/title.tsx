@@ -5,7 +5,7 @@ export const Title = () => {
     <Text align="center" fontSize="3xl">
       お
       <Text as="span" fontSize="4xl" color="orange" >魚</Text>
-      魚図鑑
+      図鑑
     </Text>
   )
 }
