@@ -65,6 +65,8 @@ const FishCard = (props: FishCardProps) => {
           <Box
             width="full"
             maxWidth="md"
+            maxHeight="full"
+            overflow="scroll"
             mx="auto"
             position="relative"
           >
@@ -119,9 +121,24 @@ const FishCard = (props: FishCardProps) => {
                 />
               </Flex>
               <Collapse in={isGraphInfoOpen} animateOpacity>
-                <Text mb="4">
-                  グラフについての説明です。
-                </Text>
+                <Box
+                  border="solid 1px gray"
+                  rounded="md"
+                  p="2"
+                  mb="2"
+                >
+                  <Heading 
+                    as="h5" 
+                    size="md"
+                    mx="1"
+                  >
+                    MSYについて
+                  </Heading>
+                  <Image
+                    src={import.meta.env.BASE_URL + "images/msy-info.png"}
+                    p="2"
+                  />
+                </Box>
               </Collapse>
               <Box
                 position="relative"
