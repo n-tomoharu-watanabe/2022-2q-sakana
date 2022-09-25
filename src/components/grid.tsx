@@ -1,6 +1,7 @@
 import { InfoIcon } from "@chakra-ui/icons"
-import { Box, Center, Collapse, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, Grid, Heading, IconButton, Image, Link, Text } from "@chakra-ui/react"
+import { Box, Collapse, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, Grid, Heading, IconButton, Image, Link, Text } from "@chakra-ui/react"
 import { useState } from "react"
+import { useWikipediaLeadText } from "../api/wikipedia"
 
 type FishCardProps = {
   path: string
@@ -9,12 +10,15 @@ type FishCardProps = {
 const FishCard = (props: FishCardProps) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [isGraphInfoOpen, setIsGraphInfoOpen] = useState(false)
+  const [isLeadTextOpen, setIsLeadTextOpen] = useState(false)
 
   const fishName = props.path.match(/[^\/]+(?=\.jpg)/)?.toString()
 
   if (!fishName) {
     return null
   }
+
+  const [leadText] = useWikipediaLeadText(fishName)
 
   return (
     <Box
@@ -69,9 +73,33 @@ const FishCard = (props: FishCardProps) => {
             </DrawerHeader>
             <DrawerCloseButton />
             <DrawerBody minH="64px">
-              <Text mb="4">
-                {fishName}についての説明です。
-              </Text>
+              <Box
+                mb="4"
+                cursor="pointer"
+                _hover={{
+                  opacity: "0.7",
+                }}
+              >
+                <Collapse
+                  startingHeight="48px"
+                  in={isLeadTextOpen}
+                >
+                  <Text
+                    display="inline"
+                    onClick={() => setIsLeadTextOpen(bool => !bool)}
+                  >
+                    {leadText}
+                  </Text>
+                  <Link
+                    href={`https://ja.wikipedia.org/wiki/${fishName}`}
+                    fontSize="sm"
+                    color='teal.500'
+                    zIndex="1"
+                  >
+                    引用： Wikipedia
+                  </Link>
+                </Collapse>
+              </Box>
               <Flex mb="2" justify="space-between" align="center">
                 <Heading as="h4" size="md">
                   グラフ
