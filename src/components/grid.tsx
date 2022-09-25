@@ -1,5 +1,5 @@
 import { InfoIcon } from "@chakra-ui/icons"
-import { Box, Collapse, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, Grid, Heading, IconButton, Image, Link, Text } from "@chakra-ui/react"
+import { Box, Collapse, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, Grid, Heading, IconButton, Image, Link, Text, Tooltip } from "@chakra-ui/react"
 import { useState } from "react"
 import { useWikipediaLeadText } from "../api/wikipedia"
 
@@ -107,19 +107,23 @@ const FishCard = (props: FishCardProps) => {
                 <Heading as="h4" size="md">
                   グラフ
                 </Heading>
-                <IconButton
-                  variant="solid"
-                  rounded="full"
-                  size="xs"
-                  bg="gray.700"
-                  color="white"
-                  fontSize="20"
-                  aria-label='open graph infomation'
-                  icon={<InfoIcon />}
-                  onClick={() => {
-                    setIsGraphInfoOpen(bool => !bool)
-                  }}
-                />
+                <Tooltip
+                  label={isGraphInfoOpen ? "説明を閉じる" : "グラフの説明"}
+                >
+                  <IconButton
+                    variant="solid"
+                    rounded="full"
+                    size="xs"
+                    bg="gray.700"
+                    color="white"
+                    fontSize="20"
+                    aria-label='open graph infomation'
+                    icon={<InfoIcon />}
+                    onClick={() => {
+                      setIsGraphInfoOpen(bool => !bool)
+                    }}  
+                  />
+                </Tooltip>
               </Flex>
               <Collapse in={isGraphInfoOpen} animateOpacity>
                 <Box
