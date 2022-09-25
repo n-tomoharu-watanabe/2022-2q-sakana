@@ -108,7 +108,7 @@ const FishCard = (props: FishCardProps) => {
                   グラフ
                 </Heading>
                 <Tooltip
-                  label={isGraphInfoOpen ? "説明を閉じる" : "グラフの説明"}
+                  label={isGraphInfoOpen ? "読み方を閉じる" : "グラフの読み方"}
                 >
                   <IconButton
                     variant="solid"
