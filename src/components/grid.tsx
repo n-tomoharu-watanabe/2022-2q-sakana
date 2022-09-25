@@ -127,8 +127,8 @@ const FishCard = (props: FishCardProps) => {
               </Flex>
               <Collapse in={isGraphInfoOpen} animateOpacity>
                 <Box
-                  border="solid 1px gray"
-                  rounded="md"
+                  borderTop="solid 1px gray"
+                  borderBottom="solid 1px gray"
                   p="2"
                   mb="2"
                 >
@@ -138,71 +138,30 @@ const FishCard = (props: FishCardProps) => {
                     mx="1"
                     mb="1"
                   >
-                    最大持続生産量（MSY）とは
+                    グラフの読み方
                   </Heading>
                   <Text
                     ml="1"
-                    mb="1"
                   >
-                    資源量を減少させず、持続的に魚を獲り続けることが出来る最大の漁獲量のこと。
+                    横軸：<br/>
+                    　1より小さければ、魚が減りすぎている<br/>
+                    縦軸：<br/>
+                    　1より大きければ、魚を採りすぎている<br/>
                   </Text>
-                  <Image
-                    src={import.meta.env.BASE_URL + "images/msy-info.png"}
-                  />
                 </Box>
               </Collapse>
               <Box
-                position="relative"
+                overflow="hidden"
+                width="110%"
+                mx="-6%"
               >
                 <Image
-                  src={import.meta.env.BASE_URL + "images/msy-graph.png"}
-                  border="1px solid gray"
-                  rounded="md"
-                  p="2"
-                />
-                <Box
-                  position="absolute"
-                  top="0"
-                  left="0"
-                  width="calc(100% - 2px)"
-                  height="calc(100% - 2px)"
-
-                  background="white"
-                  opacity="0.6"
-                  rounded="md"
-
-                  m="1px"
-                />
-                <Text
-                  position="absolute"
-                  top="50%"
-                  left="50%"
+                  src={import.meta.env.BASE_URL + `images/graphs/${fishName}.png`}
                   transform="auto"
-                  translateX="-50%"
-                  translateY="-50%"
-                  align="center"
-                  background="rgba(255, 255, 255, 0.9)"
-                  whiteSpace="nowrap"
-                  border="1px solid gray"
-                  rounded="md"
-                  p="2"
-                >
-                  MSYグラフのイメージ画像です
-                </Text>
-
-                <Link
-                  position="absolute"
-                  bottom="0"
-                  right="0"
-                  href="http://chiur.blue.coocan.jp/ee/ee09.htm"
-                  isExternal
-                  fontSize="sm"
-                  mx="1.5"
-                  my="0.5"
-                  color='teal.500'
-                >
-                  http://chiur.blue.coocan.jp/ee/ee09.htm
-                </Link>
+                  scale="1.03"
+                  translateX="-4px"
+                  translateY="-24px"
+                />
               </Box>
             </DrawerBody>
           </Box>
