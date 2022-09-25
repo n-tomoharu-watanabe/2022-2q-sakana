@@ -94,6 +94,7 @@ const FishCard = (props: FishCardProps) => {
                   </Text>
                   <Link
                     href={`https://ja.wikipedia.org/wiki/${fishName}`}
+                    isExternal
                     fontSize="sm"
                     color='teal.500'
                     zIndex="1"
@@ -190,6 +191,7 @@ const FishCard = (props: FishCardProps) => {
                   bottom="0"
                   right="0"
                   href="http://chiur.blue.coocan.jp/ee/ee09.htm"
+                  isExternal
                   fontSize="sm"
                   mx="1.5"
                   my="0.5"
